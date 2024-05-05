@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-slideInFromLeft {
+    animation: slideInFromLeft 1.5s ease-out;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@layer components {
+    .container {
+        @apply relative flex flex-col justify-center items-center w-1/2 h-3/4 p-3 bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 rounded-lg
+    }
+
+    .spinner {
+        @apply animate-spin border-gray-300 h-6 w-6 rounded-full border-4 border-t-indigo-900
+    }
+
+
+}
